@@ -1,0 +1,407 @@
+/* 1. IMPORTACIÓN DE FUENTES LOCALES */
+@font-face {
+    font-family: 'Berkshire';
+    src: url('../fonts/BerkshireSwash-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Josefin';
+    src: url('../fonts/JosefinSlab-VariableFont_wght.ttf') format('truetype');
+}
+
+/* 2. VARIABLES (Paleta de colores) */
+:root {
+    --marfil: #F4F1EC;
+    --azul-cupula: #3A5F7D;
+    --verde-oxidado: #5E6B5C;
+    --verde-vivo: #256150; 
+    --gris-piedra: #595754; 
+    --dorado-clasico: #C2A14D;
+    --color-foco: #D96A29; 
+}
+
+/* 3. RESET Y BASE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--marfil); /* Color de respaldo por si la imagen no me carga */
+    font-family: 'Josefin', serif;
+    color: var(--gris-piedra);
+    font-weight: 550; /* Grosor de la letra */
+    line-height: 1.3; /* Espacio entre renglones */
+    letter-spacing: 0.3px; /* Espacio entre cada letra */
+
+    /* --- IMAGEN DE FONDO --- */
+    background-image: url('../images/fondo3.png'); 
+    background-size: cover; /* Obliga a la imagen a cubrir toda la pantalla sin deformarse */
+    background-position: center center; /* Centra la imagen perfectamente */
+    background-repeat: no-repeat; /* Evita que la imagen se repita como un mosaico */
+    background-attachment: fixed; /* Efecto Parallax: el fondo se queda quieto mientras el usuario hace scroll */
+}
+
+/* Enlace de salto (Accesibilidad para navegación por teclado) */
+.skip-link {
+    position: absolute;
+    top: -50px;
+    left: 0;
+    background: var(--azul-cupula);
+    color: white;
+    padding: 10px 15px;
+    z-index: 10000;
+    transition: top 0.3s;
+    text-decoration: none;
+    font-family: 'Josefin', serif;
+    font-weight: 700;
+}
+
+.skip-link:focus {
+    top: 0; /* Aparece solo cuando se usa el teclado para navegar */
+}
+
+/* Visibilidad de enfoque global para botones y enlaces */
+a:focus-visible, button:focus-visible, input:focus-visible {
+    outline: 3px solid var(--color-foco);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+/* 4. TÍTULOS H1 Y H2 (BERKSHIRE) */
+h1, h2, .logo-title, .main-title {
+    font-family: 'Berkshire', cursive;
+    font-weight: 400; 
+}
+
+.logo-title {
+    font-size: 1.6rem;
+    color: var(--azul-cupula);
+    text-decoration: none;
+}
+
+.main-title {
+    font-size: 3.5rem;
+    color: var(--azul-cupula);
+    margin-bottom: 30px;
+}
+
+h2 {
+    font-size: 2.5rem;
+    color: var(--verde-vivo);
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* 5. TÍTULOS H3 (JOSEFIN) */
+h3, .ref-card h3 {
+    font-family: 'Josefin', serif;
+    font-weight: 700; /* Grosor fuente */
+    font-size: 1.5rem;
+    color: var(--azul-cupula);
+    margin-bottom: 10px;
+}
+
+/* 6. HEADER Y NAVEGACIÓN */
+.main-header {
+    background-color: white;
+    padding: 15px 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.header-container {
+    display: flex; /* Activa el modo horizontal */
+    justify-content: space-between;  /* Separa logo, menú y herramientas */
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nav-links {
+    display: flex; /* Pone los links uno al lado del otro */
+    list-style: none;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--gris-piedra);
+    font-weight: 600; /* Grosor fuente */
+    font-size: 0.9rem;
+    padding: 5px; /* Aumenta el área interactiva para el clic */
+}
+
+/* Indicador visual de la página actual */
+.nav-links a[aria-current="page"] {
+    color: var(--verde-oxidado);
+    border-bottom: 2px solid var(--verde-oxidado);
+}
+
+.header-tools {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.btn-lang {
+    text-decoration: none;
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    background-color: #e2e8f0;
+    color: var(--azul-cupula);
+    display: inline-block;
+}
+
+.btn-lang.active {
+    background-color: var(--azul-cupula);
+    color: white;
+}
+
+/* 7. HERO SECTION Y VIDEO */
+.hero {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.video-preview {
+    position: relative;
+    width: 100%; /* Permite que sea adaptable */
+    max-width: 900px; /* Definición del tamaño fijo */
+    aspect-ratio: 16 / 9; /* Obliga al contenedor a mantener el formato panorámico clásico */
+    margin: 0 auto; /* Centra el video */
+    border-radius: 15px; /* Bordes redondeados del boceto */
+    overflow: hidden; /* Asegura que el video no se salga de los bordes redondeados */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border: 3px solid var(--dorado-clasico); /* Borde dorado para resaltar */
+}
+
+/* Esta regla controla que el video ocupe todo el ancho de su contenedor de 900px */
+.video-preview video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 12px;
+    background-color: var(--marfil); /* Fondo de respaldo por si la imagen tarda en cargar */
+}
+
+/* 8. GRID DE REFERENTES (RESPONSIVE) */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 5%;
+}
+
+.reference-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+}
+
+.ref-card {
+    text-align: center;
+}
+
+.circle-frame {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid var(--dorado-clasico);
+}
+
+.circle-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 9. FOOTER Y BÚSQUEDA */
+.main-footer {
+    text-align: center;
+    padding: 30px;
+    background-color: #eeede8;
+    margin-top: 50px;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.search-btn { /* Mantiene el icono de lupa colocado en el html */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Josefin', serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--azul-cupula);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 5px; /* Ampliación de área táctil */
+}
+
+/* CLASES UTILITARIAS (Mejoran la semántica y limpian el HTML) */
+.text-center {
+    text-align: center;
+}
+
+.text-accent {
+    color: var(--verde-oxidado);
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+.mb-40 {
+    margin-bottom: 40px;
+}
+
+/* --- ESTILOS PARA EL SUBMENÚ DESPLEGABLE --- */
+.nav-links li {
+    /* Posicionamiento relativo para que los submenús absolutos se guíen por este contenedor padre */
+    position: relative;
+}
+/* Estilos iniciales del submenú */
+.submenu {
+    /* Ocultamos el submenú por defecto para que no se vea hasta que el usuario interactúe */
+    display: none;
+    /* Posicionamiento absoluto para sacarlo del flujo normal del documento y que no mueva otros elementos */
+    position: absolute;
+    /* Ubicamos el submenú justo debajo de su elemento padre (el 100% de la altura del elemento li) */
+    top: 100%;
+    /* Alineamos el borde izquierdo del submenú con el borde izquierdo de su elemento padre */
+    left: 0;
+    /* Añadimos un color de fondo utilizando la variable de color azul de los estilos base */
+    background-color: var(--azul-cupula);
+    /* Quitamos las viñetas predeterminadas de la lista para que se vea limpio */
+    list-style: none;
+    /* Añadimos un espaciado interno (padding) para que los textos no queden pegados a los bordes de la caja */
+    padding: 10px;
+    /* Definimos un ancho mínimo para evitar que el texto de los enlaces se corte de forma extraña */
+    min-width: 180px;
+    /* Agregamos una sombra suave alrededor de la caja para darle profundidad y separarla del fondo de la página */
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.3);
+    /* Asignamos un índice Z alto para asegurar que el submenú aparezca por encima de cualquier otro contenido */
+    z-index: 1000;
+}
+/* Estilos para los enlaces (etiquetas) que están dentro del submenú */
+.submenu li a {
+        color: var(--marfil);
+    /* Quitamos el subrayado por defecto que los navegadores le ponen a todos los enlaces */
+    text-decoration: none;
+    /* Hacemos que el enlace se comporte como un bloque, ocupando todo el ancho disponible para facilitar el clic */
+    display: block;
+    /* Agregamos un espaciado interno superior e inferior de 8 píxeles, y 0 en los laterales */
+    padding: 8px 0;
+}
+/* Efecto hover (cuando el usuario pasa el ratón por encima) para los enlaces del submenú */
+.submenu li a:hover {
+        color: var(--dorado-clasico);
+}
+
+/* --- ESTILOS PARA EL SLIDER (Solo para Index.html) --- */
+/* Estilos para la caja contenedora del slider de imágenes */
+.slider-container {
+    /* Definimos un ancho máximo de 600 píxeles para que la imagen no se estire demasiado en pantallas gigantes */
+    max-width: 600px;
+    /* Centramos el contenedor horizontalmente añadiendo un margen automático a la izquierda y derecha, y 20px arriba y abajo */
+    margin: 20px auto;
+    /* Borde decorativo grueso */
+    border: 4px solid var(--verde-vivo);
+    /* Redondeamos las esquinas del contenedor en 10 píxeles para suavizar el diseño */
+    border-radius: 10px;
+    /* Ocultamos cualquier parte de la imagen que intente sobresalir de los límites de esta caja contenedora */
+    overflow: hidden;
+}
+/* Estilos directos para la imagen dinámica que se cambia con JavaScript */
+#slider-img {
+    /* Forzamos a la imagen a ocupar exactamente el 100% del ancho del contenedor que definimos arriba */
+    width: 100%;
+    /* Definimos una altura fija de 350 píxeles para que el diseño no salte cuando las imágenes tengan tamaños distintos */
+    height: 350px;
+    /* Aseguramos que la imagen cubra todo el espacio sin deformarse (se recorta automáticamente si es necesario) */
+    object-fit: cover;
+}
+
+/* --- ESTILOS PARA EL SLIDER DE EDIFICIOS --- */
+/* Contenedor principal del slider para centrarlo en la pantalla */
+.slider-edificios-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Ajustes a la tarjeta dinámica para que no se deforme */
+.tarjeta-dinamica {
+    width: 100%;
+    min-height: 400px; /* Altura mínima para que los botones no salten si el texto es corto */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Estilos para el contenedor de los botones */
+.controles-slider {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* Estilos de los botones Anterior y Siguiente */
+.controles-slider button {
+    background-color: var(--azul-cupula);
+    color: var(--marfil);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-family: 'Josefin', serif;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Efecto al pasar el cursor sobre los botones */
+.controles-slider button:hover {
+    background-color: var(--dorado-clasico);
+}
+
+/* 10. MEDIA QUERIES */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        gap: 10px; /* Reduce espacio general del encabezado para ahorrar pantalla */
+    }
+    
+    .main-title {
+        font-size: 2rem;
+    }
+    
+    .nav-links {
+        flex-wrap: nowrap; /* Obliga al menú a mantenerse en una sola fila */
+        gap: 12px; /* Reduce la separación entre cada enlace */
+        justify-content: center;
+        width: 100%;
+        overflow-x: auto; /* Accesibilidad: Si la pantalla es diminuta, permitirá deslizar el menú con el dedo en lugar de amontonarlo */
+        padding-bottom: 5px; /* Espacio mínimo por si aparece una barra de desplazamiento */
+    }
+    
+    .nav-links a {
+        font-size: 0.8rem; /* Reduce el tamaño de la letra solo en celulares */
+        white-space: nowrap; /* Evita que textos largos como "Puntos referentes" se partan a la mitad */
+        padding: 5px 2px;
+    }
+    
+    .header-tools {
+        gap: 10px;
+    }
+}

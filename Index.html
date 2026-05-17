@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+    <!-- Define que el idioma principal de la página es español -->
+<head>
+    <!-- Configuración general del sitio -->
+    <meta charset="UTF-8"> <!-- Muestra correctamente acentos y caracteres especiales -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Hace que la página sea adaptable a celulares y tablets -->
+    <title>Buenos Aires Arquitectónico</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Conecta la hoja de estilos CSS -->
+</head>
+<body>
+
+    <a href="#contenido-principal" class="skip-link">Saltar al contenido principal</a>
+
+    <!-- Encabezado principal del sitio -->
+   <header class="main-header">
+        <div class="header-container">
+            <h1 class="logo-title">Buenos Aires Arquitectónico</h1>
+            <nav class="main-nav" aria-label="Navegación principal"> <ul class="nav-links">
+                    <li>
+                        <a href="Index.html" aria-current="page">Inicio</a>
+                        <ul class="submenu">
+                            <li><a href="construcciones.html">Construcciones</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="construcciones.html">Puntos referentes</a></li>
+                    
+                    <li>
+                        <a href="actividades.html">Actividades</a>
+                        <ul class="submenu">
+                            <li><a href="actividades.html#experiencias">Experiencias culturales</a></li>
+                            <li><a href="actividades.html#eventos">Eventos especiales</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li>
+                        <a href="noticias.html">Noticias</a>
+                        <ul class="submenu">
+                            <li><a href="noticias.html">Cultura</a></li>
+                            <li><a href="noticias.html">Ferias</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div class="header-tools">
+                <div class="lang-selector" aria-label="Selector de idioma">
+                    <span class="btn-lang active" aria-current="true">Español</span>
+                    <a href="en/index.html" class="btn-lang" lang="en">English</a>
+                </div>
+                <button class="search-btn" aria-label="Abrir buscador">🔍 Buscar</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Desde aquí se configura el contenido de la página Inicio -->
+   <main id="contenido-principal"> 
+        <section id="inicio" class="hero"> <div class="hero-content">
+                <h2 class="main-title text-center">Buenos Aires <br><span>Arquitectónico</span></h2>
+                <div class="video-preview">
+                    <video controls poster="images/Collagebuenosaires.png" aria-label="Video resumen de Buenos Aires Arquitectónico">
+                        <source src="images/Argentina BUENOS AIRES.mp4" type="video/mp4">
+                        <p>Tu navegador no soporta la reproducción de video. Puedes <a href="images/Argentina BUENOS AIRES.mp4">descargarlo aquí</a>.</p>
+                    </video>
+                </div>
+            </div>
+        </section>
+        
+        <section id="edificios" class="container">
+            <h2 class="text-center text-accent mb-20">Puntos referentes</h2>
+            
+            <div class="slider-edificios-container">
+                
+                <article class="ref-card tarjeta-dinamica">
+                    <div class="circle-frame">
+                        <img id="info-img" src="images/congreso mini.png" alt="Congreso de la Nación Argentina">
+                    </div>
+                    <h3 id="info-titulo">Congreso de la Nación Argentina</h3>
+                    <p id="info-desc">Es el edificio sede del Poder Legislativo del país, ubicado en la Ciudad de Buenos Aires. Alberga las cámaras de Diputados y Senadores y constituye uno de los símbolos más representativos de la democracia argentina.</p>
+                </article>
+
+                <div class="controles-slider">
+                    <button id="btn-anterior">Anterior</button>
+                    <button id="btn-siguiente">Siguiente</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <p>© 2026 Proyecto académico UNAD - Ingeniería Multimedia - Geraldine Montiel</p>
+    </footer>
+
+    <script src="js/script.js"></script>    
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Buenos Aires Architectural</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <a href="#contenido-principal" class="skip-link">Skip to main content</a>
+
+    <header class="main-header">
+        <div class="header-container">
+            <h1 class="logo-title">Buenos Aires Architectural</h1>
+            <nav class="main-nav" aria-label="Main Navigation"> 
+                <ul class="nav-links">
+                    <li>
+                        <a href="index.html" aria-current="page">Home</a>
+                        <ul class="submenu">
+                            <li><a href="constructions.html">Constructions</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="constructions.html">Landmarks</a></li>
+                    <li>
+                        <a href="activities.html">Activities</a>
+                        <ul class="submenu">
+                            <li><a href="activities.html#experiencias">Cultural Experiences</a></li>
+                            <li><a href="activities.html#eventos">Special Events</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="news.html">News</a>
+                        <ul class="submenu">
+                            <li><a href="news.html#cultura">Culture</a></li>
+                            <li><a href="news.html#ferias">Fairs</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div class="header-tools">
+                <div class="lang-selector" aria-label="Language Selector">
+                    <a href="../Index.html" class="btn-lang" lang="es">Español</a>
+                    <span class="btn-lang active" aria-current="true">English</span>
+                </div>
+                <button class="search-btn" aria-label="Open search">🔍 Search</button>
+            </div>
+        </div>
+    </header>
+
+    <main id="contenido-principal"> 
+        <section id="inicio" class="hero">
+            <div class="hero-content">
+                <h2 class="main-title text-center">Buenos Aires <br><span>Architectural</span></h2>
+                <div class="video-preview">
+                    <video controls poster="../images/Collagebuenosaires.png" aria-label="Video summary">
+                        <source src="../images/Argentina BUENOS AIRES.mp4" type="video/mp4">
+                        <p>Your browser does not support video. <a href="../images/Argentina BUENOS AIRES.mp4">Download here</a>.</p>
+                    </video>
+                </div>
+            </div>
+        </section>
+        
+        <section id="edificios" class="container">
+            <h2 class="text-center text-accent mb-20">Landmarks</h2>
+            <div class="slider-edificios-container">
+                <article class="ref-card tarjeta-dinamica">
+                    <div class="circle-frame">
+                        <img id="info-img" src="../images/congreso mini.png" alt="Landmark">
+                    </div>
+                    <h3 id="info-titulo">Loading...</h3>
+                    <p id="info-desc">Please wait while the information loads.</p>
+                </article>
+                <div class="controles-slider">
+                    <button id="btn-anterior">Previous</button>
+                    <button id="btn-siguiente">Next</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <p>© 2026 Academic Project UNAD - Multimedia Engineering - Geraldine Montiel</p>
+    </footer>
+
+    <script src="../js/script-en.js"></script>    
+</body>
+</html>
